@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Rest Resource Extension Example
+Bundle-SymbolicName: org.idempiere.rest.resource.ext.example
+Bundle-Version: 1.0.0.qualifier
+Fragment-Host: com.trekglobal.idempiere.rest.api;bundle-version="0.1.0"
+Import-Package: com.google.gson;version="[2.9.0,3.0.0)",
+ org.osgi.service.component.annotations;version="1.5.1"
+Service-Component: OSGI-INF/org.idempiere.rest.resource.ext.example.Resources.xml
+Automatic-Module-Name: org.idempiere.rest.resource.ext.example
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-17

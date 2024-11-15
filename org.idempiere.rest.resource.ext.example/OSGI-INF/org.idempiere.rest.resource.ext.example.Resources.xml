@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" immediate="true" name="org.idempiere.rest.resource.ext.example.Resources">
+   <service>
+      <provide interface="com.trekglobal.idempiere.rest.api.ResourceExtension"/>
+   </service>
+   <implementation class="org.idempiere.rest.resource.ext.example.Resources"/>
+</scr:component>
