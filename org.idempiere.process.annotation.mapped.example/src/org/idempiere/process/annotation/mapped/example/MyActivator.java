@@ -21,10 +21,13 @@
  **********************************************************************/
 package org.idempiere.process.annotation.mapped.example;
 
-import org.adempiere.base.Core;
 import org.adempiere.plugin.utils.Incremental2PackActivator;
+import org.idempiere.process.IMappedProcessFactory;
 import org.osgi.framework.BundleContext;
+import org.osgi.service.component.annotations.Activate;
 import org.osgi.service.component.annotations.Component;
+import org.osgi.service.component.annotations.Reference;
+import org.osgi.service.component.annotations.ReferenceCardinality;
 
 @Component(immediate = true)
 public class MyActivator extends Incremental2PackActivator {
@@ -35,7 +38,18 @@ public class MyActivator extends Incremental2PackActivator {
 	@Override
 	public void start(BundleContext context) throws Exception {
 		super.start(context);
-		Core.getMappedProcessFactory().scan(context, "org.idempiere.process.annotation.mapped.example");
+		//Use @Reference instead of Core.getMappedProcessFactory() to get the IMappedProcessFactory instance
+		//@Activate will only be called after @Reference is injected
+		//This is safer than using Core.getMappedProcessFactory() as it is not guaranteed that the IMappedProcessFactory 
+		//is available at the start time of this bundle	
+		//Core.getMappedProcessFactory().scan(context, "org.idempiere.process.annotation.mapped.example");
 	}
 
+	@Reference(service = IMappedProcessFactory.class, cardinality = ReferenceCardinality.MANDATORY) 
+	private IMappedProcessFactory mappedProcessFactory;
+	
+	@Activate
+	public void activate(BundleContext context) {
+		mappedProcessFactory.scan(context, "org.idempiere.process.annotation.mapped.example");
+	}
 }

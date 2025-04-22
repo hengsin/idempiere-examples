@@ -1,4 +1,4 @@
-Examples for using process, process parameter annotations and Core.getMappedProcessFactory().
+Examples for using process, process parameter annotations, @Reference to inject IMappedProcessFactory and @Activate to start the scan of process annotation.
 
 1. To Test:
 * Import project to your iDempiere Eclipse workspace.
