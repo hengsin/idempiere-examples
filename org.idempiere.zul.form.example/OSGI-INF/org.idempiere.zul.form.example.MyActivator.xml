@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" immediate="true" name="org.idempiere.zul.form.example.MyActivator">
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.3.0" immediate="true" name="org.idempiere.zul.form.example.MyActivator">
+   <reference cardinality="1..1" field="mappedFormFactory" interface="org.adempiere.webui.factory.IMappedFormFactory" name="mappedFormFactory"/>
    <implementation class="org.idempiere.zul.form.example.MyActivator"/>
 </scr:component>

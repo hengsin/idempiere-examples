@@ -22,20 +22,34 @@
 package org.idempiere.zul.form.example;
 
 import org.adempiere.plugin.utils.Incremental2PackActivator;
-import org.adempiere.webui.Extensions;
+import org.adempiere.webui.factory.IMappedFormFactory;
 import org.osgi.framework.BundleContext;
+import org.osgi.service.component.annotations.Activate;
 import org.osgi.service.component.annotations.Component;
+import org.osgi.service.component.annotations.Reference;
+import org.osgi.service.component.annotations.ReferenceCardinality;
 
 @Component(immediate = true)
 public class MyActivator extends Incremental2PackActivator {
 
+	@Reference(service = IMappedFormFactory.class, cardinality = ReferenceCardinality.MANDATORY)
+	private IMappedFormFactory mappedFormFactory;
+	
 	public MyActivator() {
 	}
 
 	@Override
 	public void start(BundleContext context) throws Exception {
 		super.start(context);
-		Extensions.getMappedFormFactory().scan(context, "org.idempiere.zul.form.example");
+		//Use @Reference instead of Extensions.getMappedFormFactory() to get the IMappedFormFactory instance
+		//@Activate will only be called after @Reference is injected
+		//This is safer than using Extensions.getMappedFormFactory() as it is not guaranteed that the IMappedFormFactory 
+		//is available at the start time of this bundle
+		//Extensions.getMappedFormFactory().scan(context, "org.idempiere.zul.form.example");
 	}
 
+	@Activate
+	public void activate(BundleContext context) {
+		mappedFormFactory.scan(context, "org.idempiere.zul.form.example");
+	}
 }
