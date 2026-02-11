@@ -13,6 +13,7 @@
 		<jdk.version>17</jdk.version>
 		<target.version>17</target.version>
 		<idempiere.core.repository.url>file:///${basedir}/../../idempiere/org.idempiere.p2/target/repository</idempiere.core.repository.url>
+		<idempiere.rest.repository.url>file:///${basedir}/../../idempiere-rest/com.trekglobal.idempiere.extensions.p2/target/repository</idempiere.rest.repository.url>
 	</properties>
 	
 	<repositories>
@@ -24,6 +25,11 @@
 		<repository>
 			<id>Central</id>
 			<url>https://repo1.maven.org/maven2</url>
+		</repository>
+		<repository>
+			<id>idempiere-rest</id>
+			<url>${idempiere.rest.repository.url}</url>
+			<layout>p2</layout>
 		</repository>
 	</repositories>
 	
