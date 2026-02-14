@@ -1,3 +1,7 @@
+---
+name: idempiere-bundle-from-template
+description: Orchestrates the creation of new iDempiere OSGi bundle project by using an existing example project as a template
+---
 # idempiere-bundle-from-template Skill
 
 This skill allows you to create a new iDempiere OSGi bundle project by using an existing example project as a template. It automates the initial setup steps, making it easier to start new iDempiere development projects.
