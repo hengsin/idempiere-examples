@@ -26,6 +26,7 @@ The following example projects can be used as templates:
 *   **org.idempiere.window.validator.example**: Example project to illustrate the usage of `WindowValidator` API.
 *   **org.idempiere.wlistbox.editor.example**: Implement custom Payment Allocation form to illustrate how to setup custom column editor for `WListbox`.
 *   **org.idempiere.zul.form.example**: Examples for using ZUL and ZK annotations to build custom forms.
+*   **org.idempiere.plugin.example**: Empty plugin
 
 ## Parameters
 
@@ -47,6 +48,7 @@ This skill requires the following parameters:
 To use this skill, follow these steps:
 
 1.  **Copy the Template Project:**
+	*   Prompt user to confirm the template project to use.
     *   Copy the entire directory of the `template_project_name` to a new directory named `new_project_name`.
     `cp -R idempiere-examples/<template_project_name> <new_project_name>`
     *   Copy parent-repository-pom.xml to the parent folder of the just created new directory.
@@ -91,7 +93,7 @@ To use this skill, follow these steps:
 8.  **Review and Clean Up:**
     *   Review all changes to ensure consistency.
     *   Remove any example-specific code or comments that are not relevant to your new project.
-    *   Run `mvn clean install` within the new project directory to build and verify.
+    *   Prompt user to confirm the run of `mvn clean verify` within the new project directory to build and verify.
 
 This skill provides a structured approach to creating new iDempiere plugin, minimizing repetitive manual tasks and ensuring compliance with project conventions.
 
